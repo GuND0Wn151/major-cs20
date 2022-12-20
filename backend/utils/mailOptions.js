@@ -1,7 +1,8 @@
 const mailOptions = (senderName, data) => {
+   console.log(senderName)
    return {
       from: "kmaheshguptha15@gmail.com", // sender address
-      to: "test@gmail.com", // list of receivers
+      to: senderName, // list of receivers
       subject: "Subject of your email", // Subject line
       html: `<div className="px-3 py-4">
          <h3 className="px-9 text-cyan-600 text-2xl">

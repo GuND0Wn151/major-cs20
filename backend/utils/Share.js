@@ -35,7 +35,7 @@ Share_api.post("/", async (request, res) => {
    else {
       console.log(request.body.password,request.body.publicKey)
       const encryptedData  =  Encrypt_text(request.body.password,request.body.publicKey)
-      const options = mailOptions(Sender.name,encryptedData)
+      const options = mailOptions(Sender.email,encryptedData)
       transporter.sendMail(options, function (err, info) {
          if (err) console.log(err);
          else console.log(info);
