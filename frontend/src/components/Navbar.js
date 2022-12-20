@@ -54,29 +54,3 @@ function Navbar() {
 }
 
 export default Navbar;
-<div class="flex-row items-center lg:inline-block  text-white mr-6">
-  <span class="font-semibold text-xl  tracking-tight">Tailwind CSS</span>
-  <div />
-  <div class="w-full  flex justify-between ">
-    <div class="text-lg w-50">
-      <a
-        href="/"
-        className="block mt-4  lg:inline-block lg:mt-0 text-white font-italic bg-indigo-600 cursor-pointer mr-4"
-      >
-        Docs
-      </a>
-      <a
-        href="/"
-        className="block mt-4  lg:inline-block lg:mt-0 text-white font-italic bg-indigo-600 cursor-pointer mr-4"
-      >
-        Examples
-      </a>
-      <a
-        href="/"
-        className="block mt-4  lg:inline-block lg:mt-0 text-white font-italic bg-indigo-600 cursor-pointer mr-4"
-      >
-        Blog
-      </a>
-    </div>
-  </div>
-</div>;
