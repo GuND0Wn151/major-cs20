@@ -31,7 +31,7 @@ function Decrypt() {
          });
    };
    return (
-      <div className=" bg-gray-500 min-h-screen flex flex-col bg-loginpage bg-cover  bg-no-repeat">
+      <div className="  flex flex-col bg-loginpage bg-cover  bg-no-repeat">
          <div className="flex flex-1 items-center justify-center  ">
             <div className="rounded-lg sm:border-3 border-gray-400 px-4 lg:px-20 py-12 bg-white  shadow-inner  lg:max-w-xl  w-full text-center">
                <form className="text-center" onSubmit={handleSubmit}>

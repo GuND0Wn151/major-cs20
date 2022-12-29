@@ -7,20 +7,29 @@ const { registerValidate, loginValidate } = require("./validations");
 const encryptRsa = new EncryptRsa();
 
 router.post("/register", async (request, res) => {
-   console.log(request.body);
+   //console.log(request.body);
    const joiValidation = registerValidate(request.body);
-
+   var message  =""
+   var status = true
    if (joiValidation.error)
-      res.status(400).send(joiValidation.error.details[0].message);
+      message = joiValidation.error.details[0].message
+      
 
    const checkEmail = await User.findOne({ email: request.body.email });
-   if (checkEmail) return res.status(400).send("Email already exists");
+   if (checkEmail){
+      status = false
+      message = "Email already exists";
+   } 
+      
 
    const checkName = await User.findOne({ email: request.body.name });
-   if (checkName) return res.status(400).send("Name already exists");
+   if (checkName){
+      status = false
+      message = "Name already exists";
+   }
 
 
-    const { privateKey, publicKey } = encryptRsa.createPrivateAndPublicKeys();
+   const { privateKey, publicKey } = encryptRsa.createPrivateAndPublicKeys();
 
 
    const salt = await bcrypt.genSalt(10);
@@ -30,17 +39,24 @@ router.post("/register", async (request, res) => {
       email: request.body.email,
       password: hashedPassword,
       public_key:publicKey,
-      private_key:privateKey
+      private_key:privateKey,
+      profile_image:{contentType:"image/*",data:request.body.image}
    });
 
 
    try {
-      const savedUser = await user.save();
-      //console.log(savedUser)
-      res.send({ user: savedUser.name, user: savedUser.email });
+      if(status){
+
+         const savedUser = await user.save();
+         console.log("here")
+          return res.status(200).json("heeww")
+      }else{
+         return res.status(400).json({message:message})
+      }
    } catch (error) {
-      console.log(error);
-      res.status(400).send(error);
+      //console.log(error);
+      console.log("hmm")
+      
    }
 });
 

@@ -1,9 +1,13 @@
 import React from 'react'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import FileBase from "react-file-base64";
+import { Buffer } from "buffer";
+
 function Register() {
   const navigate = useNavigate();
    const [register, setRegister] = React.useState(0);
+   const [baseImage, setbaseImage] = React.useState("");
   var handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -12,6 +16,7 @@ function Register() {
       name: data.get("name"),
       email: data.get("email"),
       password: data.get("password"),
+      image: Buffer.from(baseImage,"base64")
     };
     console.log(user)
     if (user.name && user.email && user.password) {
@@ -22,6 +27,7 @@ function Register() {
             name: data.get("name"),
             email: data.get("email"),
             password: data.get("password"),
+            image: Buffer.from(baseImage,"base64")
           },
           {
             headers: {
@@ -39,7 +45,8 @@ function Register() {
           }
         })
         .catch((err) => {
-          console.log(err);
+          alert(err.response.data.message)
+          console.log(err.response.data);
         });
     }
 
@@ -83,6 +90,15 @@ function Register() {
                 placeholder="Confirm Password"
               />
             </div>
+            <div className="py-2 text-left ">
+                     <label for="image">Upload Image</label>
+                     <FileBase
+                        type="file"
+                        multiple={false}
+                        className="bg-gray-100 border-3 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg  "
+                        onDone={({ base64 }) => setbaseImage(base64)}
+                     />
+                  </div>
             <div className="py-2">
               <button
                 type="submit"

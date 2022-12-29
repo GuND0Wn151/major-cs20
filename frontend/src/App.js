@@ -7,6 +7,7 @@ import Email from "./pages/Email";
 import Decrypt from "./pages/Decrypt";
 import { useState } from "react";
 //import * as images from "./assets/";
+import Profile from "./pages/Profile";
 function importAll(r) {
    let images = {};
    r.keys().forEach((item, index) => {
@@ -32,11 +33,11 @@ function App() {
       { title: "Setting", src: "Setting" },
    ];
    return (
-      <div className="flex">
+      <div className="flex ">
          <div
             className={` ${
                open ? "w-72" : "w-20 "
-            } bg-blue-600 h-screen p-5  pt-8 relative duration-300`}
+            } bg-blue-600 h-screen p-5  pt-8 top-0 left-0 z-1  fixed  duration-300`}
          >
             <img
                src={images["control.png"]}
@@ -63,12 +64,13 @@ function App() {
             </div>
             <ul className="pt-2">
                {Menus.map((Menu, index) => (
-                  <li
+                  <a
                      key={index}
                      className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-gray-300 text-lg items-center gap-x-4 
               ${Menu.gap ? "mt-9" : "mt-2"} ${
                         index === 0 && "bg-light-white"
                      } `}
+                     href={`${Menu.title}`}
                   >
                      <img src={images[`${Menu.src}.png`]} alt="text" />
                      <span
@@ -78,18 +80,19 @@ function App() {
                      >
                         {Menu.title}
                      </span>
-                  </li>
+                  </a>
                ))}
             </ul>
          </div>
-         <div className="h-screen flex-1 p-7">
+      <div className={`h-screen ml-300 duration-300 flex-1 pl-30 ${open? "ml-80" : "ml-28"}`}>
             <Routes>
-               <Route path="/login" element={<Login />} />
-               <Route path="/register" element={<Register />} />
-               <Route path="/" element={<Home />} />
-               <Route path="/search" element={<Share />} />
+               <Route path="/Login" element={<Login />} />
+               <Route path="/Register" element={<Register />} />
+               <Route path="/Home" element={<Home />} />
+               <Route path="/Share" element={<Share />} />
                <Route path="/email" element={<Email />} />
-               <Route path="/decrypt" element={<Decrypt />} />
+               <Route path="/Decrypt" element={<Decrypt />} />
+               <Route path="/Profile" element={<Profile />} />
             </Routes>
             
 
