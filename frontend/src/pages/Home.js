@@ -1,23 +1,19 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { useCookies } from 'react-cookie';
+import { useCookies } from "react-cookie";
+import Post from "../components/Post";
 
 function Home() {
-   const handleclick=()=>{
-      const win = window.open("https://google.com")
-      console.log(win.document.cookie.split(';'))
-      console.log(win.document)
-      const timer = setInterval(() => {
-      if (win.closed) {
-      clearInterval(timer);
-      
-      alert("hmm")
-    }
-   }, 500);
-   }
    return (
-      <button onClick={handleclick} className='border-black'>here
-      </button>
+      <>
+      <div>
+         here
+      </div>
+      <div className="bg-slate-200 border-2 w-[40rem]">
+
+      <Post/>
+      </div>
+      </>
    );
 }
 

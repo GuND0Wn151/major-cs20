@@ -8,15 +8,15 @@ function Profile() {
                <div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
                   <div>
                      <p class="font-bold text-gray-700 text-xl">22</p>
-                     <p class="text-gray-400">Friends</p>
+                     <p class="text-gray-400">Posts</p>
                   </div>
                   <div>
                      <p class="font-bold text-gray-700 text-xl">10</p>
-                     <p class="text-gray-400">Photos</p>
+                     <p class="text-gray-400">Shares</p>
                   </div>
                   <div>
                      <p class="font-bold text-gray-700 text-xl">89</p>
-                     <p class="text-gray-400">Comments</p>
+                     <p class="text-gray-400">Renowns</p>
                   </div>
                </div>
                <div class="relative">
@@ -48,15 +48,15 @@ function Profile() {
 
             <div class="mt-20 text-center border-b pb-12">
                <h1 class="text-4xl font-medium text-gray-700">
-                  Jessica Jones,{" "}
-                  <span class="font-light text-gray-500">27</span>
+                  Mahesh Gupta,{" "}
+                  <span class="font-light text-gray-500">23</span>
                </h1>
-               <p class="font-light text-gray-600 mt-3">Bucharest, Romania</p>
+               <p class="font-light text-gray-600 mt-3">Hyderabad, India</p>
 
                <p class="mt-8 text-gray-500">
-                  Solution Manager - Creative Tim Officer
+                  Full Stack Developer - The XYZ Solutions
                </p>
-               <p class="mt-2 text-gray-500">University of Computer Science</p>
+               <p class="mt-2 text-gray-500">Vardhaman College of Engineering</p>
             </div>
 
             <div class="mt-12 flex flex-col justify-center">

@@ -62,7 +62,7 @@ router.post("/register", async (request, res) => {
 
 router.post("/login", async (request, res) => {
    const joiValidation = loginValidate(request.body);
-   console.log(request.body);
+   //console.log(request.body);
 
    if (joiValidation.error)
       return res.status(400).send(joiValidation.error.details[0]);
@@ -71,11 +71,13 @@ router.post("/login", async (request, res) => {
 
    if (!dbmail) return res.status(400).send("Email is not Registered");
 
-   const pass = bcrypt.compare(request.body.password, dbmail.password);
-
+   const pass = await bcrypt.compare(request.body.password, dbmail.password);
+   
    if (!pass) {
+      console.log("herexxxxxxxxxxxxxxxxxx")
       return res.status(400).send("Invalid Password");
    } else {
+      console.log(pass)
       const token = jwt.sign({ _id: dbmail._id }, "SomeRandomSecretWord");
       res.set("auth-token", token).send({ token: token, mail: dbmail.email });
    }

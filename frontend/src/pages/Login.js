@@ -28,13 +28,19 @@ function Login() {
         },
       }
       ).then((res)=>{
+        if(res.status !== 200){
+          alert("Wrong Credentails")
+        }
         if(res.data.token){
+          console.log(res)
           localStorage.setItem("token",res.data.token)
           navigate("/")
         }
       }
 
-      )
+      ).catch((err)=>{
+        alert("error, Invalid details")
+      })
     }
   }
 
