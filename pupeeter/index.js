@@ -11,12 +11,12 @@ const fs = require('fs').promises;
     // const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
     await page.goto('https://accounts.google.com/signin/v2/identifier');
-    await page.type('[type="email"]', "ourfirstblog123@gmail.com");
+    await page.type('[type="email"]', "test@gmail.com");
     await page.waitForSelector('#identifierNext')
     await page.click('#identifierNext')
     await page.waitForTimeout (4500);
     await page.screenshot({path: 'buddy-screenshot.png'});
-    await page.type('[type="password"]', "@blog123");
+    await page.type('[type="password"]', "@test");
     await page.waitForSelector('#passwordNext')
     await page.click('#passwordNext')
     await page.waitForTimeout (5000);
