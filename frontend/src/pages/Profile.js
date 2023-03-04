@@ -1,6 +1,15 @@
 import React from 'react'
 
+import { CheckToken } from "../components/CheckToken";
+import { useNavigate } from "react-router-dom";
 function Profile() {
+const authenticated = CheckToken();
+const navigate = useNavigate();
+
+if (!authenticated) {
+   navigate("/login");
+   return null; // or a loading indicator, or some other fallback UI
+}
   return (
     <div class="p-10">
          <div class="p-8 bg-white shadow mt-24">
@@ -49,7 +58,7 @@ function Profile() {
             <div class="mt-20 text-center border-b pb-12">
                <h1 class="text-4xl font-medium text-gray-700">
                   Mahesh Gupta,{" "}
-                  <span class="font-light text-gray-500">23</span>
+                  <span class="font-light text-gray-500">21</span>
                </h1>
                <p class="font-light text-gray-600 mt-3">Hyderabad, India</p>
 

@@ -1,6 +1,7 @@
 import React from "react";
 
 function Email({sender_name}) {
+   
    return (
       <div className="px-3 py-4">
          <h3 className="px-9 text-cyan-600 text-2xl">

@@ -72,14 +72,14 @@ router.post("/login", async (request, res) => {
    if (!dbmail) return res.status(400).send("Email is not Registered");
 
    const pass = await bcrypt.compare(request.body.password, dbmail.password);
-   
+
    if (!pass) {
       console.log("herexxxxxxxxxxxxxxxxxx")
       return res.status(400).send("Invalid Password");
    } else {
       console.log(pass)
       const token = jwt.sign({ _id: dbmail._id }, "SomeRandomSecretWord");
-      res.set("auth-token", token).send({ token: token, mail: dbmail.email });
+      res.set("auth-token", token).send({ token: token, mail: dbmail.email ,dbmail});
    }
 });
 

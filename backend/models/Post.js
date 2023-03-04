@@ -1,6 +1,6 @@
-import mongoose, { Mongoose, Schema } from "mongoose";
+const mongoose = require("mongoose");
 
-const postSchema=new mongoose.Schema({
+const postSchema= mongoose.Schema({
       title:{
             type:String,
             trim:true,
@@ -9,16 +9,18 @@ const postSchema=new mongoose.Schema({
       text:{
             type:String,
             trim:true,
-            required:True
+            required:true
       },
-      data:{
+      date:{
             type:Date,
             default:Date.now,     
       },
-      comment:{
-            type:Schema.Types.ObjectId,
-            ref:"Comment"
-      }
+      mail:{
+            type:String,
+            trim:true,
+            required:true
+
+      },
 })
 
-module.exports=mongoose.Schema("Post",postSchema)
+module.exports=mongoose.model("Post",postSchema)

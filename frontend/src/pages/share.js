@@ -1,6 +1,14 @@
 import axios from "axios";
 import React from "react";
+import { CheckToken } from "../components/CheckToken";
+import { useNavigate } from "react-router-dom";
 function Share() {
+   const authenticated = CheckToken();
+   const navigate = useNavigate();
+   if (!authenticated) {
+      navigate("/login");
+      return null; // or a loading indicator, or some other fallback UI
+   }
    const handleSubmit = (e) => {
       e.preventDefault();
       console.log(e.target);
@@ -10,7 +18,7 @@ function Share() {
          senderEmail: formValues.get("Semail"),
          publicKey: formValues.get("Rkey"),
          privateKey: formValues.get("Pkey"),
-         password:formValues.get("password")
+         password: formValues.get("password"),
       };
       axios
          .post("http://localhost:1235/api/share", data, {
@@ -21,13 +29,14 @@ function Share() {
          })
          .then((res) => {
             if (res.status === 200) {
-              console.log(res)
-              alert("The Email Has be Sent to User")
+               console.log(res);
+               alert("The Email Has be Sent to User");
             } else {
-              alert("Some Error has Occured Check the Credentails")
+               alert("Some Error has Occured Check the Credentails");
             }
-         }).catch((err)=>{
-            alert("Some Error has Occured Check the Credentails")
+         })
+         .catch((err) => {
+            alert("Some Error has Occured Check the Credentails");
          });
    };
 
@@ -96,7 +105,7 @@ function Share() {
                      </button>
                   </div>
                </form>
-               
+
                {/* <div className="text-center mt-12">
                   <span></span>
                   <span>Already have an account?</span>
