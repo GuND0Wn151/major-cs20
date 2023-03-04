@@ -1,17 +1,31 @@
-import React from 'react'
-
+import { React, useEffect, useState } from "react";
+import axios from "axios";
 import { CheckToken } from "../components/CheckToken";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 function Profile() {
-const authenticated = CheckToken();
-const navigate = useNavigate();
-
-if (!authenticated) {
-   navigate("/login");
-   return null; // or a loading indicator, or some other fallback UI
-}
-  return (
-    <div class="p-10">
+   const { slug } = useParams();
+   const [user, setUser] = useState("");
+   console.log(useParams());
+   const authenticated = CheckToken();
+   const navigate = useNavigate();
+   console.log(slug);
+   useEffect(() => {
+      axios
+         .get(`http://localhost:1235/users/${slug}`)
+         .then((response) => {
+            setUser(response.data);
+            console.log(response.data);
+         })
+         .catch((error) => {
+            console.error(error);
+         });
+   }, [slug]);
+   if (!authenticated) {
+      navigate("/login");
+      return null; // or a loading indicator, or some other fallback UI
+   }
+   return (
+      <div class="p-10">
          <div class="p-8 bg-white shadow mt-24">
             <div class="grid grid-cols-1 md:grid-cols-3">
                <div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">
@@ -31,7 +45,7 @@ if (!authenticated) {
                <div class="relative">
                   <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
+                        xmlns="https://picsum.photos/200/300"
                         class="h-24 w-24"
                         viewBox="0 0 20 20"
                         fill="currentColor"
@@ -57,20 +71,31 @@ if (!authenticated) {
 
             <div class="mt-20 text-center border-b pb-12">
                <h1 class="text-4xl font-medium text-gray-700">
-                  Mahesh Gupta,{" "}
-                  <span class="font-light text-gray-500">21</span>
+                  Mahesh Gupta, <span class="font-light text-gray-500">21</span>
                </h1>
                <p class="font-light text-gray-600 mt-3">Hyderabad, India</p>
 
                <p class="mt-8 text-gray-500">
                   Full Stack Developer - The XYZ Solutions
                </p>
-               <p class="mt-2 text-gray-500">Vardhaman College of Engineering</p>
+               <p class="mt-2 text-gray-500">
+                  Vardhaman College of Engineering
+               </p>
             </div>
 
             <div class="mt-12 flex flex-col justify-center">
                <p class="text-gray-600 text-center font-light lg:px-16">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo illum repudiandae minima consequatur ducimus laboriosam reprehenderit quisquam, velit accusantium beatae incidunt sapiente quis illo molestias suscipit veniam perspiciatis. Nemo tenetur, consectetur odio quos minus, blanditiis repudiandae deserunt quibusdam magni quis et, perspiciatis accusamus pariatur voluptas odit nam praesentium sequi possimus quod provident earum maiores ipsum tempora veniam! Voluptatum officiis magnam repellendus quam eaque cumque similique unde at, eum minima deserunt quas, fugit, facilis neque !
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Explicabo illum repudiandae minima consequatur ducimus
+                  laboriosam reprehenderit quisquam, velit accusantium beatae
+                  incidunt sapiente quis illo molestias suscipit veniam
+                  perspiciatis. Nemo tenetur, consectetur odio quos minus,
+                  blanditiis repudiandae deserunt quibusdam magni quis et,
+                  perspiciatis accusamus pariatur voluptas odit nam praesentium
+                  sequi possimus quod provident earum maiores ipsum tempora
+                  veniam! Voluptatum officiis magnam repellendus quam eaque
+                  cumque similique unde at, eum minima deserunt quas, fugit,
+                  facilis neque !
                </p>
                <button class="text-indigo-500 py-2 px-4  font-medium mt-4">
                   Show more
@@ -78,7 +103,7 @@ if (!authenticated) {
             </div>
          </div>
       </div>
-  )
+   );
 }
 
-export default Profile
+export default Profile;

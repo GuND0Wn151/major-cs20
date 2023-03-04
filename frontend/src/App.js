@@ -10,7 +10,6 @@ import { CheckToken } from "./components/CheckToken";
 import Profile from "./pages/Profile";
 import { useNavigate } from "react-router-dom";
 
-
 function importAll(r) {
    let images = {};
    r.keys().forEach((item, index) => {
@@ -21,7 +20,6 @@ function importAll(r) {
 
 function App() {
    const [open, setOpen] = useState(true);
-
 
    const images = importAll(
       require.context("./assets", false, /\.(png|jpe?g|svg)$/)
@@ -75,7 +73,7 @@ function App() {
               ${Menu.gap ? "mt-9" : "mt-2"} ${
                         index === 0 && "bg-light-white"
                      } `}
-                     href={`${Menu.title}`}
+                     href={`http://localhost:3000/${Menu.title}`}
                   >
                      <img src={images[`${Menu.src}.png`]} alt="text" />
                      <span
@@ -97,11 +95,13 @@ function App() {
             <Routes>
                <Route path="/Login" element={<Login />} />
                <Route path="/Register" element={<Register />} />
+               <Route path="/Home" element={<Home />} />
                <Route path="/" element={<Home />} />
                <Route path="/Share" element={<Share />} />
                <Route path="/email" element={<Email />} />
                <Route path="/Decrypt" element={<Decrypt />} />
                <Route path="/Profile" element={<Profile />} />
+               <Route path="/users/:slug" element={<Profile />} />
             </Routes>
          </div>
       </div>

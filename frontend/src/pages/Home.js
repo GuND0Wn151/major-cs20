@@ -17,6 +17,7 @@ function Home() {
       <>
          <div>
             <div className="border-blue-700">
+
                <Post />
                
             </div>

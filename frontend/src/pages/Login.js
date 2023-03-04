@@ -35,7 +35,7 @@ function Login() {
           console.log(res)
           localStorage.setItem("token",res.data.token)
           localStorage.setItem("user-email",res.data.mail)
-          localStorage.setItem("pfimage",res.data.dbmail.profile_image)
+          localStorage.setItem("username",res.data.dbmail.name)
           console.log(res.data.dbmail.profile_image)
           navigate("/")
         }
