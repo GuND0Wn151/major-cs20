@@ -69,12 +69,12 @@ router.post("/login", async (request, res) => {
       console.log("herexxxxxxxxxxxxxxxxxx");
       return res.status(400).send("Invalid Password");
    } else {
-      console.log(pass);
+      console.log(console.log(dbmail));
       const token = jwt.sign({ _id: dbmail._id }, "SomeRandomSecretWord");
       res.set("auth-token", token).send({
          token: token,
          mail: dbmail.email,
-         dbmail,
+         dbmail:dbmail,
       });
    }
 });

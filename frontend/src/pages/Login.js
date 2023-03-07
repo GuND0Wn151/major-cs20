@@ -36,6 +36,9 @@ function Login() {
           localStorage.setItem("token",res.data.token)
           localStorage.setItem("user-email",res.data.mail)
           localStorage.setItem("username",res.data.dbmail.name)
+          localStorage.setItem("private",res.data.dbmail.private_key)
+          localStorage.setItem("public",res.data.dbmail.public_key)
+          localStorage.setItem("userid",res.data.dbmail._id)
           console.log(res.data.dbmail.profile_image)
           navigate("/")
         }
@@ -58,7 +61,7 @@ function Login() {
             <div className="py-2 text-left">
               <input
                 type="email"
-                className="bg-gray-200 border-3 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg  "
+                className="border-3 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg  "
                 placeholder="Email"
                 name="email"
               />
@@ -66,7 +69,7 @@ function Login() {
             <div className="py-2 text-left">
               <input
                 type="password"
-                className="bg-gray-100 border-3 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg  "
+                className="border-3 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg  "
                 placeholder="Password"
                 name="password"
               />

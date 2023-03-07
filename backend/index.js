@@ -9,7 +9,8 @@ const bodyParser = require("body-parser");
 const Share_api = require("./utils/Share");
 const Decrypt_api = require("./utils/Decrypt");
 const Post_Api = require("./utils/Post")
-const Getuser = require("./utils/Getuser")
+const Getuser = require("./utils/Getuser");
+const UpdateUser = require("./utils/UpdateUser");
 
 
 app.use(cors())
@@ -26,6 +27,7 @@ app.use("/api/share",Share_api)
 app.use("/api/decrypt",Decrypt_api)
 app.use("/api/",Post_Api)
 app.use("/users/",Getuser)
+app.use("/update/",UpdateUser)
 app.listen(port,()=>{
       console.log(`Listening on port ${port}`)
 })

@@ -9,6 +9,9 @@ import { useState } from "react";
 import { CheckToken } from "./components/CheckToken";
 import Profile from "./pages/Profile";
 import { useNavigate } from "react-router-dom";
+import Search from "./pages/Search";
+import ShowUser from "./pages/ShowUser";
+import Settings from "./pages/Settings";
 
 function importAll(r) {
    let images = {};
@@ -33,7 +36,7 @@ function App() {
       { title: "Share", src: "Share" },
       { title: "Decrypt", src: "Decrypt" },
       { title: "Profile", src: "Profile", gap: true },
-      { title: "Setting", src: "Setting" },
+      { title: "Settings", src: "Setting" },
    ];
    return (
       <div className="flex ">
@@ -98,10 +101,12 @@ function App() {
                <Route path="/Home" element={<Home />} />
                <Route path="/" element={<Home />} />
                <Route path="/Share" element={<Share />} />
+               <Route path="/Search" element={<Search/>}/>
                <Route path="/email" element={<Email />} />
                <Route path="/Decrypt" element={<Decrypt />} />
                <Route path="/Profile" element={<Profile />} />
-               <Route path="/users/:slug" element={<Profile />} />
+               <Route path="/Settings" element={<Settings/>}/>
+               <Route path="/users/:slug" element={<ShowUser />} />
             </Routes>
          </div>
       </div>

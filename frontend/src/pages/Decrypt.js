@@ -31,14 +31,13 @@ function Decrypt() {
          });
    };
    return (
-      <div className="  flex flex-col bg-loginpage bg-cover  bg-no-repeat">
+      <div className=" mt-9 flex flex-col bg-loginpage bg-cover  bg-no-repeat">
          <div className="flex flex-1 items-center justify-center  ">
             <div className="rounded-lg sm:border-3 border-gray-400 px-4 lg:px-20 py-12 bg-white  shadow-inner  lg:max-w-xl  w-full text-center">
                <form className="text-center" onSubmit={handleSubmit}>
                   <h1 className="font-bold tracking-wider text-3xl mb-8 w-full  h-full text-black-600">
                      Decrypt Credentails
                   </h1>
-
                   <div className="py-3 text-left">
                      <textarea
                         className="border-3 border-gray-100 focus:outline-none bg-gray-100 block w-full py-2 px-4 rounded-lg  "
