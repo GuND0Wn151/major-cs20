@@ -15,7 +15,7 @@ function Session() {
       const formValues = new FormData(e.target);
       const data = {
          Platform: formValues.get("platform"),
-         senderEmail: formValues.get("userid"),
+         Userid: formValues.get("userid"),
          Sender_mail: formValues.get("Semail"),
          username: formValues.get("username"),
          password: formValues.get("password"),

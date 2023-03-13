@@ -56,7 +56,11 @@ function ShowUser() {
                   <button onClick={()=>{navigator.clipboard.writeText(users.user.public_key)}} class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
                      Public Key
                   </button>
+                  <button onClick={()=>{navigator.clipboard.writeText(users.user._id)}} class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">
+                     User Id
+                  </button>
                </div>
+               
             </div>
 
             <div class="mt-20 text-center border-b pb-12">

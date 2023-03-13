@@ -65,7 +65,7 @@ const Post = () => {
                <div className="flex-shrink-0 mr-3">
                   <img
                      className=" m-2 h-16 w-16 rounded-full"
-                     src="https://placekitten.com/200/200"
+                     src={`https://picsum.photos/200/300?random=${Math.floor(Math.random() * 100) + 1}`}
                      alt="Profile picture"
                   />
                </div>

@@ -5,6 +5,10 @@ const UserCreds = new mongoose.Schema({
     type: String,
     required: true,
   },
+  Platform: {
+    type: String,
+    required: true,
+  },
   senderEmail: {
     type: String,
     required: true,

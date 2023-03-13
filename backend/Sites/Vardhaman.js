@@ -4,7 +4,8 @@ const { executablePath, default: puppeteer } = require("puppeteer");
 
 const fs = require("fs").promises;
 puppeteerExtra.use(stealthPlugin())
-const Vmeg = async () => {
+const Vmeg = async (username,password) => {
+   console.log(username,password)
    let browser = await puppeteerExtra.launch({
       headless: false,
       args:[
@@ -19,12 +20,13 @@ const Vmeg = async () => {
    var page = await browser.newPage();
    await page.goto("https://studentscorner.vardhaman.org/");
    await page.waitForTimeout(1500);
-   await page.type('#username', '19881A05E3');
+   await page.type('#username', username);
    console.log("here")
    await page.waitForTimeout(1500);
-   await page.type('#login-pass', '#S4PA');
+   await page.type('#login-pass', password);
    await page.click('.ok');
    const  cooki = await page.cookies();
+   await page.waitForTimeout(5000)
    await browser.close()
    return JSON.stringify(cooki, null, 2)
    await fs.writeFile("./Sessions/vmeg.js", JSON.stringify(cooki, null, 2));

@@ -13,7 +13,8 @@ const Getuser = require("./utils/Getuser");
 const UpdateUser = require("./utils/UpdateUser");
 const Session_api = require("./utils/Session");
 const Open_api = require("./utils/Open");
-
+const Search_api = require("./utils/Search");
+const Keys_api = require("./utils/Getkeys");
 
 app.use(cors())
 dotevn.config()  
@@ -32,7 +33,8 @@ app.use("/users/",Getuser)
 app.use("/update/",UpdateUser)
 app.use("/api/session",Session_api)
 app.use("/open/",Open_api)
-
+app.use("/search",Search_api)
+app.use("/getkeys",Keys_api)
 app.listen(port,()=>{
       console.log(`Listening on port ${port}`)
 })

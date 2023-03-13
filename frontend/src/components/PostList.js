@@ -10,7 +10,7 @@ export default function PostList(props) {
                   <div className="flex-shrink-0 mr-3">
                      <img
                         className=" m-2 h-16 w-16 rounded-full"
-                        src="https://picsum.photos/200/300"
+                        src={`https://picsum.photos/200/300?random=${Math.floor(Math.random() * 100) + 1}`}
                         alt="Profile picture"
                      />
                   </div>

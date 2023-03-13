@@ -13,6 +13,7 @@ import Search from "./pages/Search";
 import ShowUser from "./pages/ShowUser";
 import Settings from "./pages/Settings";
 import Session from "./pages/Session";
+import Keys from "./pages/Keys";
 
 function importAll(r) {
    let images = {};
@@ -31,12 +32,12 @@ function App() {
    console.log(images["control.png"]);
    const Menus = [
       { title: "Home", src: "Home" },
-      { title: "Inbox", src: "Inbox" },
       { title: "Search", src: "Search" },
       { title: "Session", src: "Chat", gap: true },
       { title: "Share", src: "Share" },
       { title: "Decrypt", src: "Decrypt" },
       { title: "Profile", src: "Profile", gap: true },
+      { title: "Keys", src: "Inbox" },
       { title: "Settings", src: "Setting" },
    ];
    return (
@@ -109,6 +110,7 @@ function App() {
                <Route path="/Settings" element={<Settings/>}/>
                <Route path="/users/:slug" element={<ShowUser />} />
                <Route path="/Session" element={<Session />} />
+               <Route path="/Keys" element={<Keys />} />
             </Routes>
          </div>
       </div>
