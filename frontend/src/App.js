@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import Search from "./pages/Search";
 import ShowUser from "./pages/ShowUser";
 import Settings from "./pages/Settings";
+import Session from "./pages/Session";
 
 function importAll(r) {
    let images = {};
@@ -32,7 +33,7 @@ function App() {
       { title: "Home", src: "Home" },
       { title: "Inbox", src: "Inbox" },
       { title: "Search", src: "Search" },
-      { title: "Chat", src: "Chat", gap: true },
+      { title: "Session", src: "Chat", gap: true },
       { title: "Share", src: "Share" },
       { title: "Decrypt", src: "Decrypt" },
       { title: "Profile", src: "Profile", gap: true },
@@ -107,6 +108,7 @@ function App() {
                <Route path="/Profile" element={<Profile />} />
                <Route path="/Settings" element={<Settings/>}/>
                <Route path="/users/:slug" element={<ShowUser />} />
+               <Route path="/Session" element={<Session />} />
             </Routes>
          </div>
       </div>

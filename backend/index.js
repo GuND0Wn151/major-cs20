@@ -11,6 +11,8 @@ const Decrypt_api = require("./utils/Decrypt");
 const Post_Api = require("./utils/Post")
 const Getuser = require("./utils/Getuser");
 const UpdateUser = require("./utils/UpdateUser");
+const Session_api = require("./utils/Session");
+const Open_api = require("./utils/Open");
 
 
 app.use(cors())
@@ -28,6 +30,9 @@ app.use("/api/decrypt",Decrypt_api)
 app.use("/api/",Post_Api)
 app.use("/users/",Getuser)
 app.use("/update/",UpdateUser)
+app.use("/api/session",Session_api)
+app.use("/open/",Open_api)
+
 app.listen(port,()=>{
       console.log(`Listening on port ${port}`)
 })
